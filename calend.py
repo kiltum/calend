@@ -13,7 +13,7 @@ def get_today():
 	locale.setlocale(locale.LC_TIME, "ru_RU")
 	reload(sys)
 	sys.setdefaultencoding('utf8')
-	now = time.strftime("%d %B")
+	now = "%s %s" % (int(time.strftime("%d")), time.strftime("%B"))
 
 	hol = now + ": "
 	for i in f.entries:
