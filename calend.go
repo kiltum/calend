@@ -12,10 +12,13 @@ import (
 
 func main() {
 	fp := gofeed.NewParser()
-	feed, _ := fp.ParseURL("http://www.calend.ru/img/export/today-holidays.rss")
 	time.LoadLocation("Europe/Moscow")
+	feed, er := fp.ParseURL("http://www.calend.ru/img/export/today-holidays.rss")
+	//fmt.Println(er)
+
 	today := strconv.Itoa(time.Now().Day())
 	text := ""
+	// fmt.Println(feed)
 	for _, element := range feed.Items {
 		if strings.HasPrefix(element.Title, today) {
 			if len(text) == 0 {
