@@ -4,16 +4,17 @@ package main
 
 import (
 	"fmt"
-	"github.com/mmcdole/gofeed"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/mmcdole/gofeed"
 )
 
 func main() {
 	fp := gofeed.NewParser()
 	time.LoadLocation("Europe/Moscow")
-	feed, er := fp.ParseURL("http://www.calend.ru/img/export/today-holidays.rss")
+	feed, _ := fp.ParseURL("http://www.calend.ru/img/export/today-holidays.rss")
 	//fmt.Println(er)
 
 	today := strconv.Itoa(time.Now().Day())
